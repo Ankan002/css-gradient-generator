@@ -1,0 +1,1 @@
+export type OrientationType = "to top" | "to right top" | "to right" | "to right bottom" | "to bottom" | "to bottom left" | "to left" | "to left top";
