@@ -39,10 +39,10 @@ const Home: NextPage = () => {
         isDarkRequired ? "text-black" : "text-gray-50"
       }`}
       style={{
-        backgroundImage: `linear-gradient(${orientation},${colorOne},${generatedColorOne?generatedColorOne+",":""}${generatedColorTwo?generatedColorTwo+",":""}${generatedColorThree?generatedColorThree+",":""}${colorTwo})`,
+        background: `linear-gradient(${orientation},${colorOne},${generatedColorOne?generatedColorOne+",":""}${generatedColorTwo?generatedColorTwo+",":""}${generatedColorThree?generatedColorThree+",":""}${colorTwo})`
       }}
     >
-      <CustomHead title="CSS Gradient" />
+      <CustomHead title="Oh My Gradient" />
 
       <h1 className="font-manrope text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
         Generate CSS Color Gradient
@@ -66,13 +66,20 @@ const Home: NextPage = () => {
 
       <GenerateGradient isDarkRequired={isDarkRequired} inputColorOne={inputColorOne} inputColorTwo={inputColorTwo} setColorOne={setColorOne} setColorTwo={setColorTwo} orientation={orientation} setGeneratedColorOne={setGeneratedColorOne} setGeneratedColorTwo={setGeneratedColorTwo} setGeneratedColorThree={setGeneratedColorThree} />
 
-      <CodeOutput type="un-optimized" colorOne={colorOne} colorTwo={colorTwo} orientation={orientation} />
+
+      <CodeOutput type="un-optimized" colorOne={colorOne} colorTwo={colorTwo} orientation={orientation} isDarkRequired={isDarkRequired} />
 
       {
-        generatedColorOne !== null && generatedColorTwo !== null && generatedColorThree !== null && (
-            <CodeOutput type="optimized" colorOne={colorOne} colorTwo={colorTwo} orientation={orientation} generatedColorOne={generatedColorOne} generatedColorTwo={generatedColorTwo} generatedColorThree={generatedColorThree} />
+        generatedColorOne && generatedColorTwo && generatedColorThree && (
+            <CodeOutput type="optimized" colorOne={colorOne} colorTwo={colorTwo} orientation={orientation} generatedColorOne={generatedColorOne} generatedColorTwo={generatedColorTwo} generatedColorThree={generatedColorThree} isDarkRequired={isDarkRequired} />
           )
       }
+
+      <button className={`bg-transparent text-base py-2 px-3 rounded-md hover:bg-[rgba(0,0,0,0.3)] mt-10 border-2 ${isDarkRequired ? "border-black" : "border-gray-50"}`}>
+        <a href="https://www.buymeacoffee.com/ankan002" target="_blank" className="font-manrope font-semibold">
+          ☕ Buy Me A Coffee
+        </a>
+      </button>
     </div>
   );
 };

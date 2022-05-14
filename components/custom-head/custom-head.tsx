@@ -10,7 +10,7 @@ const CustomHead = (props: Props) => {
   return (
     <Head>
       <title>{title}</title>
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/gradient.svg" />
     </Head>
   );
 };
